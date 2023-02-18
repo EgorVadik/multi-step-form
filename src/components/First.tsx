@@ -15,6 +15,15 @@ export default function First({ handlePage }: firstProps) {
     const [phoneErr, setPhoneErr] = useState(false)
 
     function vaildateInput() {
+        if (!data?.personal.name) {
+            setNameErr(true)
+        }
+        if (!data?.personal.email) {
+            setEmailErr(true)
+        }
+        if (!data?.personal.phone) {
+            setPhoneErr(true)
+        }
         if (!ValidateEmail(data?.personal.email)) {
             setEmailErr(true)
             return false
@@ -35,15 +44,7 @@ export default function First({ handlePage }: firstProps) {
             setData(newData)
             return true
         }
-        if (!data?.personal.name) {
-            setNameErr(true)
-        }
-        if (!data?.personal.email) {
-            setEmailErr(true)
-        }
-        if (!data?.personal.phone) {
-            setPhoneErr(true)
-        }
+
         return false
     }
 
